@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* 调整为靠下对齐 */
+  flex-direction: column;
+  background-color: #b3b0b0;
+  user-select: none;
+}
+
+.player-warp {
+  position: relative;
+}
+
+.player-warp .player-control {
+  width: 650px; /* 扩大宽度 */
+  height: 100px; /* 扩大高度 */
+  padding: 30px 40px; /* 调整内边距 */
+  background-color: #fff;
+  border-radius: 20px; /* 增加圆角 */
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.player-control .cover {
+  width: 140px; /* 扩大宽度 */
+  height: 140px; /* 扩大高度 */
+  border-radius: 50%;
+  background-color: #fff;
+  margin-top: -80px; /* 调整上边距 */
+  padding: 9px; /* 增加内边距 */
+  position: relative;
+  animation: zhuan 5s infinite linear;
+  animation-play-state: paused;
+}
+
+.player-control .cover::before {
+  content: "";
+  display: inline-block;
+  width: 20px; /* 扩大宽度 */
+  height: 20px; /* 扩大高度 */
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+}
+
+.cover img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.player-control .control {
+  width: 70%; /* 调整宽度比例 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.control i {
+  width: 50px; /* 扩大宽度 */
+  height: 50px; /* 扩大高度 */
+  text-align: center;
+  line-height: 50px; /* 调整行高 */
+  font-size: 30px; /* 扩大字体 */
+  color: #b3b0b0;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.control i:hover {
+  border-radius: 8px; /* 增加圆角 */
+  background-color: rgba(71, 70, 70, 0.2);
+  color: #fff;
+}
+
+.player-warp .player-info {
+  width: 90%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  padding: 15px; /* 增加内边距 */
+  transform: translateX(-50%);
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border-radius: 15px; /* 增加圆角 */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0;
+}
+
+.player-info .info {
+  width: 70%; /* 调整宽度比例 */
+  font-size: 13px; /* 调整字体大小 */
+}
+
+
+.info .name {
+  font-size: 19px; /* 扩大字体 */
+  font-weight: normal;
+  width: 350px; /* 设置一个具体的宽度 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.info .singer-album {
+  color: #000000;
+  line-height: 16px; /* 调整行高 */
+}
+
+.info .music_progress {
+  width: 100%;
+}
+
+.music_progress .music_progress_top {
+  display: flex;
+  justify-content: space-between;
+  color: #87CEEB;
+  line-height: 26px; /* 调整行高 */
+}
+
+.music_progress .music_progress_bar {
+  width: 100%;
+  height: 4px; /* 增加高度 */
+  background-color: #cccaca;
+  border-radius: 12px; /* 增加圆角 */
+  margin-top: 4px; /* 调整上边距 */
+}
+
+.music_progress_bar .music_progress_line {
+  width: 0%;
+  height: 100%;
+  background-color: #87CEEB;pyinstaller onefile your_html_file.html
+}
+
+.mask_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  background: url("")
+    no-repeat center center;
+  background-size: auto 80%; /* 调整图片高度为元素高度的80% */
+  filter: blur(70px); /* 调整背景模糊程度为70px */
+  transition: all 0s;
+}
+
+
+/* 模态框 */
+.modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.modal .modal-box {
+  width: 35%; /* 调整宽度比例 */
+  height: 100%;
+  padding: 30px; /* 增加内边距 */
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.modal-box .modal-box-top {
+  width: 100%;
+  height: 50px; /* 增加高度 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-box-top .modal-close {
+  font-size: 24px; /* 扩大字体 */
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+
+.modal-box-top .modal-close:hover {
+  transform: rotate(180deg);
+}
+
+.modal-box .modal-wrapper {
+  width: 100%;
+  height: calc(100% - 50px); /* 调整高度 */
+  overflow-y: auto;
+}
+
+.modal-wrapper .music-list {
+  list-style: none;
+}
+
+.music-list li {
+  padding: 15px 0; /* 增加内边距 */
+  border-bottom: 1px solid rgb(186, 182, 182);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.play-circle {
+  font-size: 24px; /* 扩大字体 */
+  margin-right: 25px; /* 调整右边距 */
+  transition: transform 0.4s;
+  cursor: pointer;
+}
+
+.play-circle:hover {
+  transform: scale(1.2);
+}
+
+.playing {
+  color: aquamarine;
+}
+
+@keyframes zhuan {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

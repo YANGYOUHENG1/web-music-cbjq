@@ -1,0 +1,183 @@
+<meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>尘白禁区MUSIC</title>
+    <link rel="icon" href="尘白logo.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <style>
+        .image-container {
+            position: absolute;
+            left: 50%;
+            top: 120px;
+            transform: translateX(-50%);
+        }
+        .player-warp {
+            position: absolute;
+            left: 50%;
+            top: 65%;
+            transform: translate(-50%, -50%);
+        }
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: #fff;
+            font-size: 1em;
+            user-select: none;
+            z-index: 1000;
+            opacity: 0.7;
+            animation: fall linear;
+        }
+        @keyframes fall {
+            0% { top: -10px; }
+            100% { top: 100%; }
+        }
+        .music_progress_bar {
+            position: relative;
+            height: 10px;
+            background-color: #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: height 0.3s ease;
+        }
+        .music_progress_bar:hover {
+            height: 6px;
+        }
+        .music_progress_line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 30%;
+            background-color: #ff5722;
+            border-radius: 56;
+        }
+    </style>
+</head>
+<body onload="adjustPlayerPosition()">
+    <div class="image-container">
+        <img src=".\尘白四字3.png" alt="尘白四字" class="尘白四字" id="尘白四字"/>
+    </div>
+    <div class="player-warp">
+        <div class="player-info">
+            <div class="info">
+                <div class="name">我记得</div>
+                <div class="singer-album">赵雷 - 署前街少年</div>
+                <div class="music_progress">
+                    <div class="music_progress_top">
+                        <span class="current-time">00:00</span>
+                        <span class="time">05:29</span>
+                    </div>
+                    <div class="music_progress_bar" onmousedown="startDragging(event)" onclick="seek(event)">
+                        <div class="music_progress_line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="player-control">
+            <div class="cover">
+                <img src="./屏幕截图 2024-10-27 203736.png" alt="封面" />
+            </div>
+            <div class="control">
+                <i id="prevBtn" class="fa fa-step-backward"></i>
+                <i id="playBtn" class="fa fa-play"></i>
+                <i id="nextBtn" class="fa fa-step-forward"></i>
+                <i id="openModal" class="fa fa-reorder"></i>
+                <!-- 移除循环模式按钮 -->
+            </div>
+        </div>
+    </div>
+    <div class="mask_bg"></div>
+    <div class="modal">
+        <div class="modal-box">
+            <div class="modal-box-top">
+                <div class="modal-title">音乐列表</div>
+                <div class="modal-close">
+                    <i class="fa fa-remove"></i>
+                </div>
+            </div>
+            <div class="modal-wrapper">
+                <ul class="music-list"></ul>
+            </div>
+        </div>
+    </div>
+    <audio id="audio" src="" loop></audio>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/index.js"></script>
+    <script>
+        function clearSnowflakes() {
+            const snowflakes = document.querySelectorAll('.snowflake');
+            snowflakes.forEach(snowflake => snowflake.remove());
+        }
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+            document.body.appendChild(snowflake);
+            snowflake.addEventListener('animationend', function() {
+                snowflake.parentElement.removeChild(snowflake);
+            });
+        }
+        function adjustPlayerPosition() {
+            const 尘白四字 = document.getElementById('尘白四字');
+            const 尘白四字Height = 尘白四字.offsetHeight;
+            const playerWarp = document.querySelector('.player-warp');
+            const initialTop = 390;
+            playerWarp.style.top = `${尘白四字Height * 0.1 + initialTop}px`;
+        }
+        function handleVisibilityChange() {
+            if (document.hidden) {
+                clearSnowflakes();
+            }
+        }
+        function seek(event) {
+            const progressBar = event.currentTarget;
+            const rect = progressBar.getBoundingClientRect();
+            const offsetX = event.clientX - rect.left;
+            const totalWidth = rect.width;
+            const percentage = offsetX / totalWidth;
+            audio.currentTime = audio.duration * percentage;
+
+            const progressLine = document.querySelector('.music_progress_line');
+            progressLine.style.width = `${percentage * 100}%`;
+        }
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        setInterval(createSnowflake, 300);
+
+        let isDragging = false;
+
+        function startDragging(event) {
+            isDragging = true;
+            document.addEventListener('mousemove', moveProgressBar);
+            document.addEventListener('mouseup', stopDragging);
+        }
+
+        function moveProgressBar(event) {
+            if (isDragging) {
+                const progressBar = document.querySelector('.music_progress_bar');
+                const rect = progressBar.getBoundingClientRect();
+                const offsetX = event.clientX - rect.left;
+                const totalWidth = rect.width;
+                const percentage = Math.min(Math.max(offsetX / totalWidth, 0), 1); // 确保百分比在0到1之间
+                const progressLine = document.querySelector('.music_progress_line');
+                progressLine.style.width = `${percentage * 100}%`;
+                audio.currentTime = audio.duration * percentage;
+            }
+        }
+
+        function stopDragging() {
+            isDragging = false;
+            document.removeEventListener('mousemove', moveProgressBar);
+            document.removeEventListener('mouseup', stopDragging);
+        }
+    </script>
+</body>
+</html>

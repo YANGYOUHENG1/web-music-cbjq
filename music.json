@@ -1,0 +1,106 @@
+[
+    {
+        "name": "OST - 复燃「Reignition」",
+        "audio_url": "./music/OST - 复燃「Reignition」.mp3",
+        "singer": "尘白禁区",
+        "album": "西山居",
+        "cover": "./picture/复燃.png",
+        "time": "3:23"
+    },
+    {
+        "name": "OST - 天启之日「Enlightened」",
+        "audio_url": "./music/OST - 天启之日「Enlightened」.mp3",
+        "singer": "尘白禁区",
+        "album": "西山居",
+        "cover": "./picture/天启之日.png",
+        "time": "3:03"
+    },
+    {
+        "name": "OST-「芙提雅-驰掣」气泡与闪耀恋曲——《Babble Bubble》",
+        "audio_url": "./music/OST-「芙提雅-驰掣」气泡与闪耀恋曲——《Babble Bubble》.mp3",
+        "singer": "尘白禁区",
+        "album": "西山居",
+        "cover": "./picture/Babble Bubble.png",
+        "time": "3:16"
+    },
+    {
+        "name": "OST-不绝余音「LASTING ECHO」",
+        "audio_url": "./music/OST-不绝余音「LASTING ECHO」.mp3",
+        "singer": "尘白禁区",
+        "album": "西山居",
+        "cover": "./picture/不绝余音.png",
+        "time": "3:28"
+    },
+    {
+        "name": "OST-宵宴绯盏",
+        "audio_url": "./music/OST-宵宴绯盏.mp3",
+        "singer": "尘白禁区",
+        "album": "西山居",
+        "cover": "./picture/宵宴绯盏.png",
+        "time": "3:48"
+    },
+    {
+        "name": "OST-明灯引",
+        "audio_url": "./music/OST-明灯引.mp3",
+        "singer": "尘白禁区",
+        "album": "西山居",
+        "cover": "./picture/明灯引.png",
+        "time": "2:37"
+    },
+    {
+        "name": "OST-暗中游戏「Game in the dark」",
+        "audio_url": "./music/OST-暗中游戏「Game in the dark」.mp3",
+        "singer": "尘白禁区",
+        "album": "西山居",
+        "cover": "./picture/暗中游戏.png",
+        "time": "3:08"
+    },
+    {
+        "name": "OST-朝露的泪痕",
+        "audio_url": "./music/OST-朝露的泪痕.mp3",
+        "singer": "尘白禁区",
+        "album": "西山居",
+        "cover": "./picture/朝露的泪痕.png",
+        "time": "3:08"
+    },
+    {
+        "name": "OST-鸣号之时",
+        "audio_url": "./music/OST-鸣号之时.mp3",
+        "singer": "尘白禁区",
+        "album": "西山居",
+        "cover": "./picture/鸣号之时.png",
+        "time": "4:39"
+    },
+    {
+        "name": "ASMR   水浴按摩~粘腻轻抚~与少女们享受假日吧！-192K  mp4a",
+        "audio_url": "./music/ASMR   水浴按摩~粘腻轻抚~与少女们享受假日吧！-192K  mp4a.mp3",
+        "singer": "尘白禁区",
+        "album": "西山居",
+        "cover": "./picture/ASMR.png",
+        "time": "9:23"
+    },
+    {
+        "name": "ASMR  夜袭分析员？！让凯茜娅“治愈”伤口吧~-192K  mp4a",
+        "audio_url": "./music/ASMR  夜袭分析员？！让凯茜娅“治愈”伤口吧~-192K  mp4a.mp3",
+        "singer": "尘白禁区",
+        "album": "西山居",
+        "cover": "./picture/ASMR.png",
+        "time": "5:26"
+    },
+    {
+        "name": "ASMR  科学助眠的方法论-192K  mp4a",
+        "audio_url": "./music/ASMR  科学助眠的方法论-192K  mp4a.mp3",
+        "singer": "尘白禁区",
+        "album": "西山居",
+        "cover": "./picture/ASMR.png",
+        "time": "16:59"
+    },
+    {
+        "name": "ASMR 轻语减压  怀抱~心跳~保健室？！深陷双重治愈吧-192K  mp4a",
+        "audio_url": "./music/ASMR 轻语减压  怀抱~心跳~保健室？！深陷双重治愈吧-192K  mp4a.mp3",
+        "singer": "尘白禁区",
+        "album": "西山居",
+        "cover": "./picture/ASMR.png",
+        "time": "13:16"
+    }
+]
